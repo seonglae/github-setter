@@ -1,6 +1,8 @@
 import fetch from 'node-fetch'
 import dotenv from 'dotenv'
-import consola from 'consola'
+import fs from 'fs'
+
+const EXPORT_NAME = 'repo.list'
 
 dotenv.config()
 
@@ -9,7 +11,7 @@ fetch(`https://api.github.com/users/${process.env.GH_USERNAME}/repos`, {
 })
   .then((res) => res.json())
   .then((json) => {
-    for (const repo of json) {
-      consola.info(repo.html_url)
-    }
+    const logger = fs.createWriteStream(EXPORT_NAME, { flags: 'a' })
+    for (const repo of json) logger.write(`${repo.html_url}\n`)
+    logger.end()
   })
