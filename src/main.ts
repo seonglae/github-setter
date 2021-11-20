@@ -32,7 +32,6 @@ export class GithubSetCommand extends Command {
     })
     for (const repository of repositories.data) {
       this.context.stdout.write(repository.full_name + '\n')
-      if (repository.full_name !== 'seonglae/github-setter') continue
       const [owner, repo] = repository.full_name.split('/')
       const list = await nestedFiles(this.folder)
       for (const path of list) {
