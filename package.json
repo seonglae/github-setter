@@ -1,7 +1,17 @@
 {
   "type": "module",
+  "name": "gh-setter",
+  "displayName": "Github Setter",
+  "version": "1.0.0",
+  "scripts": {
+    "setter": "esmo src/main.ts"
+  },
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.1"
+    "clipanion": "^3.2.0-rc.3",
+    "esno": "^0.12.1",
+    "octokit": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.9"
   }
 }
