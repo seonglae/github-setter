@@ -1,2 +1,5 @@
-github: [seonglae]
-  custom:  ['https://paypal.me/seonglae', 'https://www.buymeacoffee.com/seongland']
+github:
+          - seonglae
+        custom:
+          - 'https://paypal.me/seonglae'
+          - 'https://www.buymeacoffee.com/seongland'
