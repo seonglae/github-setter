@@ -1,0 +1,20 @@
+---
+name: "🧚‍♂️ Feature"
+description: "Feature added"
+labels:
+  - feature
+body:
+- type: textarea
+  id: feature
+  attributes:
+    label: What feature?
+    description: Describe feature implemented
+  validations:
+    required: true
+- type: textarea
+  id: implementation
+  attributes:
+    label: How did you do that?
+    description: Describe feature how implemented
+  validations:
+    required: true
