@@ -1,10 +1,10 @@
 {
   "type": "module",
-  "name": "gh-setter",
-  "displayName": "Github Setter",
+  "name": "github-setter",
+  "displayName": "Github Setter for user",
   "version": "1.0.0",
-  "scripts": {
-    "setter": "esmo src/main.ts"
+  "bin": {
+    "gh-setter": "./src/main.ts"
   },
   "dependencies": {
     "clipanion": "^3.2.0-rc.3",

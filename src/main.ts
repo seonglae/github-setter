@@ -1,6 +1,7 @@
 import { Octokit } from 'octokit'
 import { Command, Option, Cli, Builtins } from 'clipanion'
 import { version, name, displayName } from '../package.json'
+import { readdir, stat, readFile } from 'fs/promises'
 
 const cli = new Cli({
   binaryName: name,
@@ -14,21 +15,53 @@ export class GithubSetCommand extends Command {
     required: true,
     description: 'Github personal access token(PAT)'
   })
-  owner = Option.Array('-o,--owner', {
+  user = Option.String('-u,--user', {
     required: true,
-    description: 'User and Organizations list to apply'
+    description: 'User name to apply'
+  })
+  folder = Option.String('-f,--folder', '.github', {
+    description: 'Folder to apply all repo'
   })
 
   async execute() {
-    console.log()
-    this.context.stdout.write(`Set all repo in ${this.owner}\n`)
+    this.context.stdout.write(`\nSet all repo in ${this.user}\n`)
 
-    const octokit = new Octokit({ token: process.env.GH_TOKEN })
-    for (const owner of this.owner) {
-      const repos = octokit.rest.repos
-      repos.createOrUpdateFileContents
+    const { rest } = new Octokit({ auth: this.token })
+    const repositories = await rest.repos.listForUser({
+      username: this.user
+    })
+    for (const repository of repositories.data) {
+      this.context.stdout.write(repository.full_name + '\n')
+      if (repository.full_name !== 'seonglae/github-setter') continue
+      const [owner, repo] = repository.full_name.split('/')
+      const list = await nestedFiles(this.folder)
+      for (const path of list) {
+        const option = { owner, repo, path, sha: undefined }
+        const content = await rest.repos.getContent(option).catch(() => null)
+        if (content) option.sha = content.data.sha
+        const file = await readFile(path)
+        rest.repos.createOrUpdateFileContents({
+          ...option,
+          message: `chore: add ${this.folder} folder basic`,
+          content: file.toString('base64'),
+          committer: {
+            name: 'seonglae',
+            email: 'sungle3737@gmail.com'
+          }
+        })
+      }
     }
   }
+}
+
+async function nestedFiles(folder, results = []) {
+  const files = await readdir(folder)
+  const paths = files.map((inner) => `${folder}/${inner}`)
+  for (const path of paths) {
+    if ((await stat(path)).isDirectory()) await nestedFiles(path, results)
+    else results.push(path)
+  }
+  return results
 }
 
 cli.register(GithubSetCommand)

@@ -1,17 +1,11 @@
-https://api.github.com/users/{{user}}/repos
+## Make your all repository sync some .github files
 
-https://github.com/settings/developers
-
+1. change .github folder
+## Run
 ```bash
-rm repo.list
-node main.js
-
-github-funding-yml-updater \
---mode overwrite  --user sungle3737 \
---token {{gh_token}} \
---funding-file ./FUNDING.yml \
---list-file ./repo.list \
---write
-
-funding.yml --list-file ./repo.list
+https://github.com/seonglae/gh-repo-setter
+npm i -g pnpm
+pnpm i
+# change .github folder
+pnpm esmo src/main.ts github-setter --token $GH_TOKEN --user $GH_USER
 ```
