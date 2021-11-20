@@ -1,0 +1,18 @@
+---
+name: '🐛 Bug fix'
+description: "Fixed some bug"
+labels:
+  - bug
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: Bug Description
+      description:
+        What was a problem with this bug
+  - type: textarea
+    id: solution
+    attributes:
+      label: How resolved
+      description:
+        How that bug resolved?
