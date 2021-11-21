@@ -1,4 +1,4 @@
-## Make your all repository sync some .github files
+## Sync .github folder and Issue labels
 
 1. change .github folder
 ## Run
