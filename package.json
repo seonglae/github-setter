@@ -2,7 +2,7 @@
   "type": "module",
   "name": "github-setter",
   "displayName": "Github Setter for user",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "bin": {
     "gh-setter": "./src/main.ts"
   },
