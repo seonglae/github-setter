@@ -1,0 +1,76 @@
+{
+  "labels": [
+    {
+      "name": "bug",
+      "color": "d73a4a",
+      "aliases": [],
+      "description": "Something isn't working"
+    },
+    {
+      "name": "documentation",
+      "color": "0075ca",
+      "aliases": [],
+      "description": "Improvements or additions to documentation"
+    },
+    {
+      "name": "duplicate",
+      "color": "cfd3d7",
+      "aliases": [],
+      "description": "This issue or pull request already exists"
+    },
+    {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "aliases": [],
+      "description": "Feature improvement or enhancement"
+    },
+    {
+      "name": "help",
+      "color": "a2ff99",
+      "aliases": [],
+      "description": "Need help"
+    },
+    {
+      "name": "lack",
+      "color": "a7ba9a",
+      "aliases": [],
+      "description": "Need more information"
+    },
+    {
+      "name": "question",
+      "color": "d876e3",
+      "aliases": [],
+      "description": "Issue about question"
+    },
+    {
+      "name": "feature",
+      "color": "82eedd",
+      "aliases": [],
+      "description": "Pull request which has new feature"
+    },
+    {
+      "name": "fix",
+      "color": "669999",
+      "aliases": [],
+      "description": "Pull request which fix existing bugs"
+    },
+    {
+      "name": "refactor",
+      "color": "2366aa",
+      "aliases": [],
+      "description": "Pull request which refactor codes"
+    },
+    {
+      "name": "dependencies",
+      "color": "0366d6",
+      "aliases": [],
+      "description": "Pull requests that update a dependency file"
+    },
+    {
+      "name": "analytics",
+      "color": "f9d0c4",
+      "aliases": [],
+      "description": "For analytics object"
+    }
+  ]
+}
