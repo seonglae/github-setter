@@ -8,6 +8,7 @@ types:
   - test
   - ci
   - cd
+  - build
   - lint
   - merge
   - typing
