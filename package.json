@@ -1,10 +1,9 @@
 {
-  "type": "module",
   "name": "github-setter",
-  "displayName": "Github Setter for user",
-  "version": "1.1.0",
+  "displayName": "Github sync `.github` folder & label for custom settings",
+  "version": "1.1.1",
   "bin": {
-    "gh-setter": "./src/main.ts"
+    "gh-setter": "./build/main"
   },
   "dependencies": {
     "clipanion": "^3.2.0-rc.3",
@@ -13,6 +12,22 @@
     "octokit": "^1.7.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.9"
-  }
+    "@types/node": "^16.11.9",
+    "esbuild": "^0.14.21"
+  },
+  "main": "./build/main.js",
+  "scripts": {
+    "prepare": "esbuild src/main.ts --bundle --outdir=build --platform=\"node\"  --banner:js=\"#!/usr/bin/env node\n\""
+  },
+  "keywords": [
+    "github",
+    "cli",
+    "template",
+    ".github",
+    "issue template",
+    "pull request template",
+    "semantic commit",
+    "funding"
+  ],
+  "repository": "github:seonglae/github-setter"
 }
