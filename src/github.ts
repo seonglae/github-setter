@@ -4,6 +4,9 @@ import { readFile } from 'fs/promises'
 import githubLabelSync from 'github-label-sync'
 import { nestedFiles } from './fs'
 
+const BOT_NAME = 'github-setter'
+const BOT_EMAIL = 'bot@github.com'
+
 export abstract class GithubCommand extends Command {
   token = Option.String('-t,--token', {
     required: true,
@@ -41,10 +44,6 @@ export class GithubFolderCommand extends GithubCommand {
   folder = Option.String('-f,--folder', '.github', {
     description: 'Folder to apply all repo'
   })
-  email = Option.String('-e,--email', {
-    required: true,
-    description: 'Email for commiter'
-  })
   list: string[]
   constructor() {
     super()
@@ -64,7 +63,7 @@ export class GithubFolderCommand extends GithubCommand {
         ...option,
         message: `meta: add default \`${this.folder}\` folder`,
         content: file.toString('base64'),
-        committer: { name: this.user, email: this.email }
+        committer: { name: BOT_NAME, email: BOT_EMAIL }
       })
     }
   }
@@ -76,7 +75,9 @@ export class GithubLabelCommand extends GithubCommand {
     description: 'label config json file'
   })
   async repository(owner: string, repo: string) {
-    const labels = JSON.parse(await import(this.file))
+    const { labels } = await readFile(this.file).then((json) =>
+      JSON.parse(String(json))
+    )
     await githubLabelSync({
       accessToken: this.token,
       repo: `${owner}/${repo}`,
