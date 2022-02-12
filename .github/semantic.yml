@@ -8,5 +8,8 @@ types:
   - test
   - ci
   - cd
-  - chore
-  - update
+  - lint
+  - merge
+  - typing
+  - perf
+  - deps
