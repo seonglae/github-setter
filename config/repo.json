@@ -71,6 +71,12 @@
       "color": "f9d0c4",
       "aliases": [],
       "description": "For analytics object"
+    },
+    {
+      "name": "vision",
+      "color": "6b8ddd",
+      "aliases": [],
+      "description": "For future long term planning"
     }
   ]
 }
