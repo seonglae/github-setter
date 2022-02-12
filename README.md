@@ -2,18 +2,16 @@
 
 ## Run
 ```bash
-https://github.com/seonglae/gh-repo-setter
-npm i -g pnpm
-pnpm i
+pnpm i -g github-setter
+gh-setter
 # change .github folder
-pnpm esmo src/main.ts github-setter --token $GH_TOKEN --user $GH_USER
+gh-setter --token $GH_TOKEN --user $GH_USER --email $COMMIT_EMAIL
 
 # change config.json
-pnpm esmo src/main.ts github-setter labels --token $GH_TOKEN --user $GH_USER
+gh-setter labels --token $GH_TOKEN --user $GH_USER
 ```
 
-# GH_USER
-user or org
-### examplae
-- seonglae
-- seongland
+## module
+```ts
+import { GithubCommand } from 'github-setter'
+```
