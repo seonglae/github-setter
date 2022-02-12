@@ -1,9 +1,10 @@
 {
   "name": "github-setter",
   "displayName": "Github sync `.github` folder & label for custom settings",
-  "version": "1.1.1",
+  "version": "1.2.0",
+  "main": "./build/github.js",
   "bin": {
-    "gh-setter": "./build/main"
+    "gh-setter": "./build/main.js"
   },
   "dependencies": {
     "clipanion": "^3.2.0-rc.3",
@@ -15,9 +16,10 @@
     "@types/node": "^16.11.9",
     "esbuild": "^0.14.21"
   },
-  "main": "./build/main.js",
   "scripts": {
-    "prepare": "esbuild src/main.ts --bundle --outdir=build --platform=\"node\"  --banner:js=\"#!/usr/bin/env node\n\""
+    "prepare": "pnpm build:cli && pnpm build:module",
+    "build:cli": "esbuild src/main.ts --bundle --outdir=build --platform=\"node\"  --banner:js=\"#!/usr/bin/env node\n\"",
+    "build:module": "esbuild src/github.ts --bundle --outdir=build --platform=\"node\" "
   },
   "keywords": [
     "github",
