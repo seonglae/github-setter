@@ -12,4 +12,5 @@ types:
   - merge
   - typing
   - perf
+  - meta
   - deps
