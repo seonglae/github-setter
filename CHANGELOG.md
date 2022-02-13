@@ -1,4 +1,9 @@
-## 1.3.1
+## 1.4.0
+
+- Add branch protection feature & template
+
+
+### 1.3.1
 
 - config label added
 - settings template added to repo
