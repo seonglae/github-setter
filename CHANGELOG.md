@@ -3,7 +3,6 @@
 - config label added
 - settings template added to repo
 
-
 ## 1.3.0
 
 - user option changed to owner (user + organization)
