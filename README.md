@@ -10,8 +10,11 @@ gh-setter
 # create .github folder
 gh-setter --token $GH_TOKEN --owner $GH_OWNER --folder .github
 
-# change config.json
+# change labels
 gh-setter labels --token $GH_TOKEN --user $GH_USER
+
+# change branch protection
+gh-setter branch protection --token $GH_TOKEN --user $GH_USER
 ```
 
 ## module
@@ -19,3 +22,8 @@ gh-setter labels --token $GH_TOKEN --user $GH_USER
 ```ts
 import { GithubCommand } from "github-setter";
 ```
+
+
+## Warn
+maximum repo update is 100
+this might be updated
