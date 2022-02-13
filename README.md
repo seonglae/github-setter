@@ -4,8 +4,8 @@
 ```bash
 pnpm i -g github-setter
 gh-setter
-# change .github folder
-gh-setter --token $GH_TOKEN --user $GH_USER --email $COMMIT_EMAIL
+# create .github folder
+gh-setter --token $GH_TOKEN --owner $GH_OWNER --folder .github
 
 # change config.json
 gh-setter labels --token $GH_TOKEN --user $GH_USER

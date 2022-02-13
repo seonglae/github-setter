@@ -12,7 +12,7 @@ export abstract class GithubCommand extends Command {
     required: true,
     description: 'Github personal access token(PAT)'
   })
-  user = Option.String('-u,--user', {
+  user = Option.String('-o,--owner', {
     required: true,
     description: 'user or organization'
   })
@@ -24,12 +24,14 @@ export abstract class GithubCommand extends Command {
     const repositories = await octokit.rest.repos.listForUser({
       username: this.user
     })
+    const promises = []
     for (const repository of repositories.data) {
       const [owner, repo] = repository.full_name.split('/')
       if (this.repo && repo !== this.repo) continue
       this.context.stdout.write(repository.full_name + '\n')
-      await this.repository(owner, repo, octokit)
+      promises.push(this.repository(owner, repo, octokit))
     }
+    await Promise.all(promises)
   }
 
   abstract repository(
@@ -41,6 +43,7 @@ export abstract class GithubCommand extends Command {
 
 export class GithubFolderCommand extends GithubCommand {
   static paths = [Command.Default]
+  async = Option.Boolean('-a,--async')
   folder = Option.String('-f,--folder', '.github', {
     description: 'Folder to apply all repo'
   })
@@ -53,19 +56,30 @@ export class GithubFolderCommand extends GithubCommand {
     await super.execute()
   }
 
-  async repository(owner: string, repo: string, { rest }: Octokit) {
-    for (const path of this.list) {
-      const option = { owner, repo, path, sha: undefined }
-      const content = await rest.repos.getContent(option).catch(() => null)
-      if (content) option.sha = content.data.sha
-      const file = await readFile(path)
-      rest.repos.createOrUpdateFileContents({
-        ...option,
-        message: `meta: add default \`${this.folder}\` folder`,
-        content: file.toString('base64'),
-        committer: { name: BOT_NAME, email: BOT_EMAIL }
-      })
-    }
+  async repository(owner: string, repo: string, octokit: Octokit) {
+    const promises = []
+    for (const path of this.list)
+      if (this.async) promises.push(this.uploadFile(owner, repo, octokit, path))
+      else await this.uploadFile(owner, repo, octokit, path)
+    await Promise.all(promises)
+  }
+
+  async uploadFile(
+    owner: string,
+    repo: string,
+    { rest }: Octokit,
+    path: string
+  ) {
+    const option = { owner, repo, path, sha: undefined }
+    const content = await rest.repos.getContent(option).catch(() => null)
+    if (content) option.sha = content.data.sha
+    const file = await readFile(path)
+    rest.repos.createOrUpdateFileContents({
+      ...option,
+      message: `meta: add default \`${this.folder}\` folder`,
+      content: file.toString('base64'),
+      committer: { name: BOT_NAME, email: BOT_EMAIL }
+    })
   }
 }
 
