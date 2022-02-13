@@ -96,7 +96,7 @@ export class GithubBranchProtectionCommand extends GithubCommand {
   async branchProtection(owner: string, repo: string, { rest }: Octokit, branch: string) {
     if (this.branch !== branch) await rest.repos.renameBranch({ owner, repo, branch, new_name: this.branch })
     const config = await readFile(this.file).then(json => JSON.parse(String(json)))
-    const r = await rest.repos.updateBranchProtection({
+    await rest.repos.updateBranchProtection({
       owner,
       repo,
       branch: this.branch,
