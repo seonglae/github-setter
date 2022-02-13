@@ -20,10 +20,10 @@ gh-setter branch protection --token $GH_TOKEN --user $GH_USER
 ## module
 
 ```ts
-import { GithubCommand } from "github-setter";
+import { GithubCommand } from 'github-setter'
 ```
 
-
 ## Warn
+
 maximum repo update is 100
 this might be updated

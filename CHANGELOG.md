@@ -2,7 +2,6 @@
 
 - Add branch protection feature & template
 
-
 ### 1.3.1
 
 - config label added
