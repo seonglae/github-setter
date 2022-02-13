@@ -73,6 +73,12 @@
       "description": "For analytics object"
     },
     {
+      "name": "config",
+      "color": "b9d0c4",
+      "aliases": [],
+      "description": "Update configuration"
+    },
+    {
       "name": "vision",
       "color": "6b8ddd",
       "aliases": [],
