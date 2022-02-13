@@ -1,6 +1,7 @@
 ## Sync .github folder and Issue labels
 
 ## Run
+
 ```bash
 pnpm i -g github-setter
 gh-setter
@@ -12,6 +13,7 @@ gh-setter labels --token $GH_TOKEN --user $GH_USER
 ```
 
 ## module
+
 ```ts
-import { GithubCommand } from 'github-setter'
+import { GithubCommand } from "github-setter";
 ```
