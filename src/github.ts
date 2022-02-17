@@ -17,7 +17,7 @@ export abstract class GithubCommand extends Command {
     description: 'user or organization',
   })
   repo = Option.String('-r,--repo', {
-    description: 'If this option passed, only that repository will be affected',
+    description: '(RegEx) If this option passed, only regex passed repository will be affected',
   })
   async execute() {
     const octokit = new Octokit({ auth: this.token })
@@ -29,7 +29,7 @@ export abstract class GithubCommand extends Command {
     for (const repository of repositories.data) {
       const [owner, repo] = repository.full_name.split('/')
       const dftBranch = repository.default_branch
-      if (this.repo && repo !== this.repo) continue
+      if (!new RegExp(this.repo).test(repo)) continue
       this.context.stdout.write(repository.full_name + '\n')
       promises.push(this.repository(owner, repo, octokit, dftBranch))
     }
