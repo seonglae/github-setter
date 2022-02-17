@@ -1,5 +1,11 @@
 ## 1.4.0
 
+- Repo option support regex feature
+
+
+
+## 1.4.0
+
 - Add branch protection feature & template
 
 
