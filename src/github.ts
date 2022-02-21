@@ -19,6 +19,9 @@ export abstract class GithubCommand extends Command {
   repo = Option.String('-r,--repo', {
     description: '(RegEx) If this option passed, only regex passed repository will be affected',
   })
+  lang = Option.String('-l,--lang', {
+    description: 'filter: Most used language in repo',
+  })
   async execute() {
     const octokit = new Octokit({ auth: this.token })
     const repositories = await octokit.rest.repos.listForUser({
@@ -28,6 +31,11 @@ export abstract class GithubCommand extends Command {
     const promises = []
     for (const repository of repositories.data) {
       const [owner, repo] = repository.full_name.split('/')
+      if (this.lang) {
+        const { data } = await octokit.rest.repos.listLanguages({ owner, repo })
+        for (const lang in data) data[lang.toLowerCase()] = data[lang]
+        if (!data[this.lang.toLowerCase()]) continue
+      }
       const dftBranch = repository.default_branch
       if (!new RegExp(this.repo).test(repo)) continue
       this.context.stdout.write(repository.full_name + '\n')
