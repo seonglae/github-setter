@@ -7,14 +7,14 @@
     "gh-setter": "./build/main.js"
   },
   "dependencies": {
-    "clipanion": "^3.2.0-rc.3",
-    "esno": "^0.12.1",
+    "clipanion": "^3.2.0-rc.9",
+    "esno": "^0.14.1",
     "github-label-sync": "^2.0.2",
-    "octokit": "^1.7.0"
+    "octokit": "^1.7.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.9",
-    "esbuild": "^0.14.21"
+    "@types/node": "^16.11.25",
+    "esbuild": "^0.14.23"
   },
   "scripts": {
     "prepare": "pnpm build:cli && pnpm build:module",
