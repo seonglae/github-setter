@@ -32,8 +32,9 @@ export abstract class GithubCommand extends Command {
     for (const repository of repositories.data) {
       const [owner, repo] = repository.full_name.split('/')
       if (this.lang) {
-        const langs = await octokit.rest.repos.listLanguages({ owner, repo })
-        if (!langs[this.lang]) continue
+        const { data } = await octokit.rest.repos.listLanguages({ owner, repo })
+        for (const lang in data) data[lang.toLowerCase()] = data[lang]
+        if (!data[this.lang.toLowerCase()]) continue
       }
       const dftBranch = repository.default_branch
       if (!new RegExp(this.repo).test(repo)) continue
