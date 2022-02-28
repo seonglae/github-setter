@@ -7,13 +7,13 @@
     "gh-setter": "./build/main.js"
   },
   "dependencies": {
-    "clipanion": "^3.2.0-rc.9",
+    "clipanion": "^3.2.0-rc.10",
     "esno": "^0.14.1",
     "github-label-sync": "^2.0.2",
     "octokit": "^1.7.1"
   },
   "devDependencies": {
-    "@types/node": "^16.11.25",
+    "@types/node": "^16.11.26",
     "esbuild": "^0.14.23"
   },
   "scripts": {
