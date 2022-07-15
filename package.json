@@ -1,7 +1,7 @@
 {
   "name": "github-setter",
   "displayName": "Github sync `.github` folder & label for custom settings",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "main": "./build/github.js",
   "bin": {
     "gh-setter": "./build/main.js"
