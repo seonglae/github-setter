@@ -10,10 +10,10 @@
     "clipanion": "^3.2.0-rc.11",
     "esno": "^0.16.3",
     "github-label-sync": "^2.2.0",
-    "octokit": "^2.0.3"
+    "octokit": "^2.0.4"
   },
   "devDependencies": {
-    "@types/node": "^16.11.43",
+    "@types/node": "^16.11.45",
     "esbuild": "^0.14.49"
   },
   "scripts": {
