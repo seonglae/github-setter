@@ -1,21 +1,21 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@types/node': ^16.11.56
-  clipanion: ^3.2.0-rc.11
+  '@types/node': ^16.11.59
+  clipanion: ^3.2.0-rc.12
   esbuild: ^0.15.7
   esno: ^0.16.3
   github-label-sync: ^2.2.0
   octokit: ^2.0.7
 
 dependencies:
-  clipanion: 3.2.0-rc.11
+  clipanion: 3.2.0-rc.12
   esno: 0.16.3
   github-label-sync: 2.2.0
   octokit: 2.0.7
 
 devDependencies:
-  '@types/node': 16.11.56
+  '@types/node': 16.11.59
   esbuild: 0.15.7
 
 packages:
@@ -396,7 +396,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.1
       '@types/keyv': 3.1.3
-      '@types/node': 16.11.56
+      '@types/node': 16.11.59
       '@types/responselike': 1.0.0
     dev: false
 
@@ -407,26 +407,26 @@ packages:
   /@types/jsonwebtoken/8.5.6:
     resolution: {integrity: sha512-+P3O/xC7nzVizIi5VbF34YtqSonFsdnbXBnWUCYRiKOi1f9gA4sEFvXkrGr/QVV23IbMYvcoerI7nnhDUiWXRQ==}
     dependencies:
-      '@types/node': 16.11.56
+      '@types/node': 16.11.59
     dev: false
 
   /@types/keyv/3.1.3:
     resolution: {integrity: sha512-FXCJgyyN3ivVgRoml4h94G/p3kY+u/B86La+QptcqJaWtBWtmc6TtkNfS40n9bIvyLteHh7zXOtgbobORKPbDg==}
     dependencies:
-      '@types/node': 16.11.56
+      '@types/node': 16.11.59
     dev: false
 
   /@types/lru-cache/5.1.1:
     resolution: {integrity: sha512-ssE3Vlrys7sdIzs5LOxCzTVMsU7i9oa/IaW92wF32JFb3CVczqOkru2xspuKczHEbG3nvmPY7IFqVmGGHdNbYw==}
     dev: false
 
-  /@types/node/16.11.56:
-    resolution: {integrity: sha512-aFcUkv7EddxxOa/9f74DINReQ/celqH8DiB3fRYgVDM2Xm5QJL8sl80QKuAnGvwAsMn+H3IFA6WCrQh1CY7m1A==}
+  /@types/node/16.11.59:
+    resolution: {integrity: sha512-6u+36Dj3aDzhfBVUf/mfmc92OEdzQ2kx2jcXGdigfl70E/neV21ZHE6UCz4MDzTRcVqGAM27fk+DLXvyDsn3Jw==}
 
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 16.11.56
+      '@types/node': 16.11.59
     dev: false
 
   /aggregate-error/3.1.0:
@@ -599,8 +599,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /clipanion/3.2.0-rc.11:
-    resolution: {integrity: sha512-fugY+N5uPop31VDYhjTc31DwPjCCLx6kmvdlFTf8fztpOxwplopiZr1XSHSA2qNmfpcXlJZKJsXMkxvXmdzK7g==}
+  /clipanion/3.2.0-rc.12:
+    resolution: {integrity: sha512-yhxjhyfuOtQW11CLgfqG3aWsVNu52CzQd18tgAn4P/AMaEvaLbB1x9qmKb5K5HPvjBzDG6JWSHdJOIfqQgOo7Q==}
     dependencies:
       typanion: 3.8.0
     dev: false
