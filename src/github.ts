@@ -28,7 +28,7 @@ export abstract class GithubCommand extends Command {
       username: this.user,
       per_page: 100,
     })
-    const promises = []
+    const promises: Promise<unknown>[] = []
     for (const repository of repositories.data) {
       const [owner, repo] = repository.full_name.split('/')
       if (this.lang) {
@@ -37,9 +37,9 @@ export abstract class GithubCommand extends Command {
         if (!data[this.lang.toLowerCase()]) continue
       }
       const dftBranch = repository.default_branch
-      if (!new RegExp(this.repo).test(repo)) continue
+      if (!new RegExp(this.repo as string).test(repo)) continue
       this.context.stdout.write(repository.full_name + '\n')
-      promises.push(this.repository(owner, repo, octokit, dftBranch))
+      promises.push(this.repository(owner, repo, octokit, dftBranch as string))
     }
     await Promise.all(promises)
   }
@@ -63,7 +63,7 @@ export class GithubFolderCommand extends GithubCommand {
   }
 
   async repository(owner: string, repo: string, octokit: Octokit) {
-    const promises = []
+    const promises: Promise<unknown>[] = []
     for (const path of this.list)
       if (this.async) promises.push(this.uploadFile(owner, repo, octokit, path))
       else await this.uploadFile(owner, repo, octokit, path)
@@ -71,9 +71,9 @@ export class GithubFolderCommand extends GithubCommand {
   }
 
   async uploadFile(owner: string, repo: string, { rest }: Octokit, path: string) {
-    const option = { owner, repo, path, sha: undefined }
+    const option: { owner: string; repo: string; path: string; sha?: string } = { owner, repo, path, sha: undefined }
     const content = await rest.repos.getContent(option).catch(() => null)
-    if (content) option.sha = content.data.sha
+    if (content) option.sha = (content.data as { sha: string }).sha
     const file = await readFile(path)
     rest.repos.createOrUpdateFileContents({
       ...option,
