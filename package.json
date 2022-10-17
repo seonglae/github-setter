@@ -10,11 +10,11 @@
     "clipanion": "^3.2.0-rc.12",
     "esno": "^0.16.3",
     "github-label-sync": "^2.2.0",
-    "octokit": "^2.0.7"
+    "octokit": "^2.0.9"
   },
   "devDependencies": {
-    "@types/node": "^16.11.64",
-    "esbuild": "^0.15.10"
+    "@types/node": "^16.11.66",
+    "esbuild": "^0.15.11"
   },
   "scripts": {
     "prepare": "pnpm build:cli && pnpm build:module",
