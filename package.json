@@ -13,8 +13,8 @@
     "octokit": "^2.0.14"
   },
   "devDependencies": {
-    "@types/node": "^16.18.16",
-    "esbuild": "^0.17.12"
+    "@types/node": "^16.18.21",
+    "esbuild": "^0.17.14"
   },
   "scripts": {
     "prepare": "pnpm build:cli && pnpm build:module",
