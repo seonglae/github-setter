@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.18.23",
-    "esbuild": "^0.17.15"
+    "esbuild": "^0.17.17"
   },
   "scripts": {
     "prepare": "pnpm build:cli && pnpm build:module",
