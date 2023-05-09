@@ -31,6 +31,7 @@ export abstract class GithubCommand extends Command {
     const promises: Promise<unknown>[] = []
     for (const repository of repositories.data) {
       const [owner, repo] = repository.full_name.split('/')
+      if (repository.archived) continue
       if (this.lang) {
         const { data } = await octokit.rest.repos.listLanguages({ owner, repo })
         for (const lang in data) data[lang.toLowerCase()] = data[lang]
@@ -41,7 +42,7 @@ export abstract class GithubCommand extends Command {
       this.context.stdout.write(repository.full_name + '\n')
       promises.push(this.repository(owner, repo, octokit, dftBranch as string))
     }
-    await Promise.all(promises)
+    await Promise.all(promises).catch(error => console.error(error))
   }
 
   abstract repository(owner: string, repo: string, octokit: Octokit, branch: string): Promise<unknown>

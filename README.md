@@ -11,10 +11,10 @@ gh-setter
 gh-setter --token $GH_TOKEN --owner $GH_OWNER --folder .github
 
 # change labels
-gh-setter labels --token $GH_TOKEN --user $GH_USER
+gh-setter labels --token $GH_TOKEN --owner $GH_USER
 
 # change branch protection
-gh-setter branch protection --token $GH_TOKEN --user $GH_USER
+gh-setter branch protection --token $GH_TOKEN --owner $GH_USER
 ```
 
 ## module
