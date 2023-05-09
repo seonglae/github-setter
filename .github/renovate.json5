@@ -1,4 +1,5 @@
 {
+  schedule: 'after 12pm on Friday',
   extends: ['config:base', 'group:allNonMajor'],
   labels: ['dependencies'],
   pin: false,
