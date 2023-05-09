@@ -1,3 +1,0 @@
-enabled: true
-commit_template: |
-  refactor: restyled by ${restyler.name}
