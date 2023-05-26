@@ -11,13 +11,13 @@ dependencies:
     specifier: ^2.3.1
     version: 2.3.1
   octokit:
-    specifier: ^2.0.16
-    version: 2.0.16
+    specifier: ^2.0.18
+    version: 2.0.18
 
 devDependencies:
   '@types/node':
-    specifier: ^16.18.31
-    version: 16.18.31
+    specifier: ^16.18.33
+    version: 16.18.33
   esbuild:
     specifier: ^0.17.19
     version: 0.17.19
@@ -593,15 +593,15 @@ packages:
   /@types/jsonwebtoken@9.0.1:
     resolution: {integrity: sha512-c5ltxazpWabia/4UzhIoaDcIza4KViOQhdbjRlfcIGVnsE3c3brkz9Z+F/EeJIECOQP7W7US2hNE930cWWkPiw==}
     dependencies:
-      '@types/node': 16.18.31
+      '@types/node': 16.18.33
     dev: false
 
   /@types/lru-cache@5.1.1:
     resolution: {integrity: sha512-ssE3Vlrys7sdIzs5LOxCzTVMsU7i9oa/IaW92wF32JFb3CVczqOkru2xspuKczHEbG3nvmPY7IFqVmGGHdNbYw==}
     dev: false
 
-  /@types/node@16.18.31:
-    resolution: {integrity: sha512-KPXltf4z4g517OlVJO9XQ2357CYw7fvuJ3ZuBynjXC5Jos9i+K7LvFb7bUIwtJXSZj0vTp9Q6NJBSQpkwwO8Zw==}
+  /@types/node@16.18.33:
+    resolution: {integrity: sha512-WjW7iYRVtePnSeLxVfE1e+g1yStJrfR9Anuv4y6JZVgOqYyFcW7GhPBk2/J1d0rC4ZNLrI13lS4e32NUuuRmHA==}
 
   /aggregate-error@3.1.0:
     resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
@@ -1378,8 +1378,8 @@ packages:
     resolution: {integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==}
     dev: false
 
-  /octokit@2.0.16:
-    resolution: {integrity: sha512-n7lqH8wkvBRzjzdWGUKZjFYEbGnLjcv5+eS6W6LXGXrXEZbJwQ8WpADMYKbTL0LdOeXdvmpf9DTtpPk0cXndBg==}
+  /octokit@2.0.18:
+    resolution: {integrity: sha512-IR3l4RRBS7MSgMt8qngLt7URChtu1zf5MEb9SYa7Flw+jwwm7Ya4JQJ6leh/S5v1J0RV1Phmj3p+SH+jMCSrjw==}
     engines: {node: '>= 14'}
     dependencies:
       '@octokit/app': 13.1.4
