@@ -8,13 +8,13 @@
   },
   "dependencies": {
     "clipanion": "^3.2.1",
-    "esno": "^0.16.3",
+    "esno": "^0.17.0",
     "github-label-sync": "^2.3.1",
     "octokit": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.18.38",
-    "esbuild": "^0.18.11"
+    "esbuild": "^0.18.12"
   },
   "scripts": {
     "prepare": "pnpm build:cli && pnpm build:module",
