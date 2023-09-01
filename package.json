@@ -13,7 +13,7 @@
     "octokit": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "^16.18.46",
+    "@types/node": "^16.18.47",
     "esbuild": "^0.19.2"
   },
   "scripts": {
