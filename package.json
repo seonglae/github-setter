@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "clipanion": "^3.2.1",
-    "esno": "^0.17.0",
+    "esno": "^4.0.0",
     "github-label-sync": "^2.3.1",
     "octokit": "^3.1.2"
   },
